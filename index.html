@@ -1,0 +1,861 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#fff0f3">
+<title>Chúc mừng Ngày Phụ nữ Việt Nam 20/10 - Mẹ Hoa của Con ✨🎉</title>
+
+<style>
+:root {
+  --cream: #fff9ed;
+  --pink: #f9dce5;
+  --rose: #d94f77;
+  --red: #b72f57;
+  --ink: #633b48;
+  --gold: #e9b95e;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  color: var(--ink);
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  background:
+    radial-gradient(ellipse at 15% 15%, #fff 0, transparent 40%),
+    linear-gradient(145deg, #fff5f4, #ffe7ed 55%, #fff4df);
+}
+
+button { font: inherit; }
+
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--red);
+  outline-offset: 5px;
+}
+
+.page {
+  width: min(100% - 28px, 760px);
+  margin: auto;
+  padding: 36px 0 55px;
+  text-align: center;
+}
+
+.eyebrow {
+  color: var(--rose);
+  font-size: .78rem;
+  font-weight: bold;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 12px auto;
+  max-width: 650px;
+  color: var(--red);
+  font-family: Georgia, serif;
+  font-size: clamp(1.8rem, 6vw, 3rem);
+  line-height: 1.3;
+}
+
+.subtitle {
+  margin: 12px 0 28px;
+  color: #9e6878;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+/* PHONG BÌ */
+
+.envelope-scene {
+  position: relative;
+  width: min(100%, 430px);
+  height: 310px;
+  margin: 28px auto 15px;
+  perspective: 1000px;
+}
+
+.envelope {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 15px;
+  width: 100%;
+  height: 245px;
+  border-radius: 9px;
+  background: #edb9c8;
+  box-shadow: 0 18px 40px #b8496c22;
+  cursor: pointer;
+}
+
+.envelope-back {
+  position: absolute;
+  inset: 0;
+  border-radius: 9px;
+  background: #e7a8ba;
+}
+
+.letter-preview {
+  position: absolute;
+  z-index: 2;
+  left: 8%;
+  bottom: 12px;
+  width: 84%;
+  height: 205px;
+  padding: 25px 12px;
+  border-radius: 5px;
+  background: var(--cream);
+  box-shadow: 0 2px 8px #7b34441a;
+  transition: transform 1s ease, bottom 1s ease;
+}
+
+.letter-preview .mini-flower { font-size: 2.6rem; }
+
+.letter-preview p {
+  font-family: Georgia, serif;
+  font-size: 1.1rem;
+  color: var(--red);
+}
+
+.envelope-front {
+  position: absolute;
+  z-index: 4;
+  inset: 0;
+  border-radius: 0 0 9px 9px;
+  background: #f2c7d2;
+  clip-path: polygon(0 0, 50% 57%, 100% 0, 100% 100%, 0 100%);
+}
+
+.envelope-flap {
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 58%;
+  background: #e7a8ba;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  transform-origin: top center;
+  transition: transform .8s ease;
+}
+
+.seal {
+  position: absolute;
+  z-index: 6;
+  left: 50%;
+  top: 48%;
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  border: 2px solid #fbe2ab;
+  border-radius: 50%;
+  background: var(--red);
+  color: white;
+  font-size: 1.6rem;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 4px 12px #a02c4b33;
+  transition: opacity .3s;
+}
+
+.envelope-scene.opened .envelope-flap {
+  transform: rotateX(180deg);
+  z-index: 1;
+}
+
+.envelope-scene.opened .seal { opacity: 0; }
+
+.envelope-scene.opened .letter-preview {
+  bottom: 115px;
+  transform: translateY(-45px);
+}
+
+.open-btn, .gift-btn, .replay-btn {
+  border: 0;
+  border-radius: 50px;
+  padding: 14px 25px;
+  color: white;
+  background: linear-gradient(135deg, #d94f77, #b72f57);
+  box-shadow: 0 8px 22px #c444682b;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform .2s, box-shadow .2s;
+}
+
+.open-btn:hover, .gift-btn:hover, .replay-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px #c4446844;
+}
+
+.hint {
+  color: #a36f7e;
+  font-size: .88rem;
+  line-height: 1.7;
+}
+
+/* HOA NỞ */
+
+.bloom {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin: 10px auto 24px;
+  animation: flowerBreathe 3s ease-in-out infinite;
+}
+
+.bloom .petal {
+  position: absolute;
+  left: 36px;
+  top: 6px;
+  width: 28px;
+  height: 43px;
+  border-radius: 50% 50% 40% 40%;
+  background: linear-gradient(#ffb6c9, #ef628a);
+  transform-origin: 14px 44px;
+  transform: rotate(calc(var(--i) * 45deg)) scale(.15);
+  opacity: 0;
+  transition: transform 1s cubic-bezier(.2, 1.5, .5, 1),
+              opacity .6s;
+}
+
+.bloom.grown .petal {
+  transform: rotate(calc(var(--i) * 45deg)) scale(1);
+  opacity: 1;
+}
+
+.bloom .center {
+  position: absolute;
+  z-index: 2;
+  left: 36px;
+  top: 36px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff1a7, #eebc50);
+  box-shadow: 0 0 18px #f4ca6c88;
+}
+
+/* LÁ THƯ */
+
+.letter {
+  display: none;
+  position: relative;
+  margin: 36px auto 0;
+  padding: clamp(22px, 5vw, 48px);
+  text-align: left;
+  background:
+    radial-gradient(ellipse at 0 0, #f2dfc7 0, transparent 35%),
+    repeating-linear-gradient(
+      0deg,
+      #fffaf0 0,
+      #fffaf0 31px,
+      #f4e8d7 32px
+    );
+  border: 1px solid #ead5b7;
+  border-radius: 4px;
+  box-shadow: 0 15px 40px #8c53621c;
+  animation: letterAppear .9s ease both;
+}
+
+.letter.visible { display: block; }
+
+.letter::before {
+  content: "✿";
+  position: absolute;
+  top: 13px;
+  right: 18px;
+  color: #dc7c96;
+  font-size: 1.5rem;
+}
+
+.letter-heading {
+  margin: 0 0 25px;
+  color: var(--red);
+  text-align: center;
+  font-family: Georgia, serif;
+  font-size: clamp(1.5rem, 5vw, 2rem);
+}
+
+.greeting {
+  color: #b33c61;
+  font-family: Georgia, serif;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.letter p {
+  font-size: 1rem;
+  line-height: 2;
+  white-space: pre-line;
+}
+
+.letter .paragraph {
+  margin: 0 0 25px;
+}
+
+.signature {
+  margin-top: 35px;
+  text-align: right;
+  color: var(--red);
+  font-family: Georgia, serif;
+  font-size: 1.3rem;
+  font-style: italic;
+}
+
+/* QUÀ BÍ MẬT */
+
+.gift-section {
+  margin: 42px auto 10px;
+  padding: 25px 15px;
+  border: 1px dashed #e8a4b8;
+  border-radius: 18px;
+  background: #fff8f3bb;
+  text-align: center;
+}
+
+.gift {
+  margin: 12px auto 18px;
+  font-size: 5rem;
+  line-height: 1.3;
+  cursor: pointer;
+  filter: drop-shadow(0 7px 5px #b8496c20);
+  animation: giftWiggle 3s ease-in-out infinite;
+}
+
+.gift.open { animation: giftPop .55s ease; }
+
+.gift-message {
+  display: none;
+  max-width: 480px;
+  margin: 20px auto 0;
+  padding: 22px;
+  border-radius: 12px;
+  background: #fff0f4;
+  color: #a63155;
+  line-height: 1.9;
+  animation: letterAppear .5s ease both;
+}
+
+.gift-message.visible { display: block; }
+
+.gift-message .big-heart { font-size: 2.4rem; }
+
+/* ALBUM ẢNH */
+
+.memories {
+  margin: 52px 0 0;
+  text-align: center;
+}
+
+.memories h2 {
+  color: var(--red);
+  font-family: Georgia, serif;
+  font-size: clamp(1.5rem, 5vw, 2rem);
+}
+
+.memories-intro {
+  color: #996b78;
+  font-size: .92rem;
+  line-height: 1.8;
+}
+
+.photo-window {
+  position: relative;
+  overflow: hidden;
+  margin: 22px auto;
+  border: 7px solid #fffaf0;
+  border-radius: 15px;
+  background: #f8dce4;
+  box-shadow: 0 12px 28px #963e5b20;
+}
+
+.photo-track {
+  display: flex;
+  transition: transform .6s ease;
+}
+
+.photo-slide {
+  flex: 0 0 100%;
+  min-width: 0;
+}
+
+.photo-slide img {
+  display: block;
+  width: 100%;
+  height: clamp(250px, 65vw, 450px);
+  object-fit: cover;
+  background: linear-gradient(135deg, #fce8ee, #f6d6e0);
+}
+
+.photo-caption {
+  padding: 12px 8px;
+  background: #fffaf0;
+  color: #a14c67;
+  font-family: Georgia, serif;
+  font-size: 1rem;
+}
+
+.album-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.album-controls button {
+  width: 43px;
+  height: 43px;
+  border: 1px solid #e9a9bb;
+  border-radius: 50%;
+  background: #fff8f3;
+  color: var(--red);
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.photo-count {
+  color: #a14c67;
+  font-size: .9rem;
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 17px;
+}
+
+.dots button {
+  width: 9px;
+  height: 9px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: #e8b8c6;
+  cursor: pointer;
+}
+
+.dots button.active { background: var(--red); }
+
+footer {
+  margin-top: 45px;
+  color: #a56c7b;
+  font-size: .85rem;
+  line-height: 1.9;
+}
+
+/* TRÁI TIM VÀ HOA BAY */
+
+.floating-layer {
+  position: fixed;
+  z-index: 20;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.float-item {
+  position: absolute;
+  bottom: -45px;
+  left: var(--left);
+  font-size: var(--size);
+  opacity: 0;
+  animation: floatUp var(--duration) ease-in forwards;
+  animation-delay: var(--delay, 0s);
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0);
+    opacity: 0;
+  }
+  12% { opacity: .95; }
+  85% { opacity: .85; }
+  100% {
+    transform: translate3d(var(--drift), -110vh, 0) rotate(35deg);
+    opacity: 0;
+  }
+}
+
+@keyframes flowerBreathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes giftWiggle {
+  0%, 85%, 100% { transform: rotate(0); }
+  89% { transform: rotate(-5deg); }
+  93% { transform: rotate(5deg); }
+  97% { transform: rotate(-3deg); }
+}
+
+@keyframes giftPop {
+  50% { transform: scale(1.2) rotate(8deg); }
+}
+
+@keyframes letterAppear {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 480px) {
+  .page { width: min(100% - 22px, 760px); padding-top: 25px; }
+  .envelope-scene { height: 280px; }
+  .envelope { height: 220px; }
+  .letter-preview { height: 185px; }
+  .letter p { font-size: .96rem; line-height: 1.95; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
+</style>
+</head>
+
+<body>
+<div class="floating-layer" id="floatingLayer" aria-hidden="true"></div>
+
+<main class="page">
+  <div class="eyebrow">A little letter, a lot of love</div>
+
+  <h1>Chúc mừng Ngày Phụ nữ Việt Nam 20/10 - Mẹ Hoa của Con ✨🎉</h1>
+
+  <p class="subtitle">
+    Gửi người phụ nữ đặc biệt nhất nhà mình 💗<br>
+    Mẹ ơiii, có một chiếc thư bí mật dành riêng cho Mẹ đây nèee!
+  </p>
+
+  <div class="bloom" id="bloom" aria-label="Bông hoa đang nở">
+    <span class="petal" style="--i:0"></span>
+    <span class="petal" style="--i:1"></span>
+    <span class="petal" style="--i:2"></span>
+    <span class="petal" style="--i:3"></span>
+    <span class="petal" style="--i:4"></span>
+    <span class="petal" style="--i:5"></span>
+    <span class="petal" style="--i:6"></span>
+    <span class="petal" style="--i:7"></span>
+    <span class="center"></span>
+  </div>
+
+  <div class="envelope-scene" id="envelopeScene">
+    <div class="envelope" id="envelope" role="button"
+         tabindex="0" aria-label="Mở phong bì">
+      <div class="envelope-back"></div>
+
+      <div class="letter-preview">
+        <div class="mini-flower">🌷</div>
+        <p>Gửi Mẹ Hoa iu dấu...</p>
+        <span>💌</span>
+      </div>
+
+      <div class="envelope-front"></div>
+      <div class="envelope-flap"></div>
+      <div class="seal">♥</div>
+    </div>
+  </div>
+
+  <button class="open-btn" id="openLetter">
+    💌 Mở thư của Quỳnh nèee
+  </button>
+  <p class="hint">Bấm vào phong bì hoặc nút phía trên để khám phá nhaaa ✨</p>
+
+  <article class="letter" id="letter">
+    <h2 class="letter-heading">Gửi Mẹ Hoa của con 💐</h2>
+    <p class="greeting">Mẹ iu ơiiii, hí hí 💗</p>
+
+    <p class="paragraph">Hí hí, nhân ngày 20/10 quỳnh quỳnh chúc Mẹ iu luôn bình an, bệnh tật đến đều được hoá giải, da dẻ mịn màng, ăn ngon, ngủ ngonn. Lúc nào cũng ồn ào, nhí nhố, cười hố hố hết, rạng rỡ. Mong cho quán ăn nhà mình luôn ổn định, tiền bạc ngày càng dư dả thêm chút chútt</p>
+
+    <p class="paragraph">Hì hì, lâu lâu nhà mìn cũng có nhìu chuyện, ngày nào cũng chí choé hết. Nhưng màaaa, đó mới là điểm đặc biệt của nhà mình chìii. Mỗi người cứ một tính cách zị ó, ai cũng có cá tính hếtt cả, khó mà dung hoà được.</p>
+
+    <p class="paragraph">Nhiều khi mẹ cũng mệt rùii, cũng phải lo lắng cho gia đình mình nhiều, cũng ko có thời gian cho bản thân nhiều nữa, cũng vì con cái và gia đình hết, không phải ai cũng thấu được nỗi lòng của một người Mẹ mà, trân trọng và biết ơn Mẹ iu của Con nhiều lắm</p>
+
+    <p class="paragraph">Có như nào thì Nhà vẫn là Nhà, bố mẹ vẫn ở đó, vẫn là chỗ dựa, vẫn là điểm tựa tinh thần và là nơi nghỉ ngơi tìm về màaaa, vẫn yêu nhà mìnhh lắm ạaa hihii</p>
+
+    <div class="signature">
+      Yêu Mẹ nhiều nhìuuu 💗<br>
+      Quỳnh quỳnh của Mẹ 🌷
+    </div>
+
+    <section class="gift-section">
+      <div class="eyebrow">A tiny surprise for you</div>
+      <h2>Ủa Mẹ ơiii, còn một món nữa nè 🎁</h2>
+      <p class="hint">Mẹ bấm mở quà đi rồi biết nhaaa!</p>
+
+      <div class="gift" id="gift" role="button" tabindex="0"
+           aria-label="Mở hộp quà bí mật">🎁</div>
+
+      <button class="gift-btn" id="openGift">Mở quà bí mật 💝</button>
+
+      <div class="gift-message" id="giftMessage" aria-live="polite">
+        <div class="big-heart">💗🌷💗</div>
+        <h3>Điều ước bí mật của Quỳnh dành cho Mẹ!</h3>
+        <p>
+          Mong Mẹ iu của con luôn khoẻ mạnh, bình an, vui vẻ,
+          lúc nào cũng cười hố hố thật giòn tan nhaaa.
+          Mong mọi điều tốt đẹp sẽ đến với Mẹ,
+          những vất vả rồi sẽ nhẹ nhàng hơn,
+          và Mẹ sẽ có thật nhiều thời gian yêu thương bản thân mình nữa.
+        </p>
+        <p>
+          Cảm ơn Mẹ vì đã luôn là Mẹ của con.
+          Nhà mình cứ chí choé thì chí choé,
+          nhưng mà con vẫn yêu nhà mình nhìuuu lắmmm! 🥹💗
+        </p>
+        <div>🌸 🌷 💖 🌷 🌸</div>
+      </div>
+    </section>
+  </article>
+
+  <section class="memories" id="memories">
+    <div class="eyebrow">Our little world</div>
+    <h2>Một chút kỷ niệm, thật nhiều yêu thương 💗</h2>
+    <p class="memories-intro">
+      Mười chiếc khung nhỏ lưu giữ những khoảnh khắc của nhà mình.<br>
+      Mẹ và con cùng xem lại nhaa! 🌷
+    </p>
+
+    <div class="photo-window">
+      <div class="photo-track" id="photoTrack"></div>
+    </div>
+
+    <div class="album-controls">
+      <button id="prevPhoto" aria-label="Ảnh trước">‹</button>
+      <span class="photo-count" id="photoCount">01 / 10</span>
+      <button id="nextPhoto" aria-label="Ảnh tiếp theo">›</button>
+    </div>
+
+    <div class="dots" id="photoDots" aria-label="Chọn ảnh"></div>
+    <p class="hint">Ảnh tiếp theo đang chờ Mẹ khám phá nèee ✨</p>
+  </section>
+
+  <footer>
+    Made with lots of love by Quỳnh quỳnh 💌<br>
+    Chúc Mẹ Hoa 20/10 thật vui, thật hạnh phúc! 🌷
+  </footer>
+</main>
+
+<script>
+const $ = (id) => document.getElementById(id);
+
+const scene = $("envelopeScene");
+const letter = $("letter");
+const bloom = $("bloom");
+const openButton = $("openLetter");
+const floatingLayer = $("floatingLayer");
+
+let letterOpened = false;
+let giftOpened = false;
+let floatTimer = null;
+
+/* MỞ PHONG BÌ */
+
+function openLetter() {
+  if (letterOpened) {
+    letter.scrollIntoView({ behavior: "smooth", block: "start" });
+    return;
+  }
+
+  letterOpened = true;
+  scene.classList.add("opened");
+  bloom.classList.add("grown");
+  openButton.textContent = "💗 Đọc thư của Mẹ và con";
+
+  burstFlowers(30);
+
+  window.setTimeout(() => {
+    letter.classList.add("visible");
+    letter.scrollIntoView({ behavior: "smooth", block: "start" });
+    startFloating();
+  }, 850);
+}
+
+openButton.addEventListener("click", openLetter);
+$("envelope").addEventListener("click", openLetter);
+$("envelope").addEventListener("keydown", (event) => {
+  if (event.key === "Enter" || event.key === " ") {
+    event.preventDefault();
+    openLetter();
+  }
+});
+
+/* HOA VÀ TRÁI TIM BAY */
+
+const decorations = ["💗", "💕", "💖", "🌸", "🌷", "❤️", "✨"];
+
+function createFloatingItem() {
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+  // Giới hạn số phần tử để tránh làm chậm điện thoại.
+  if (floatingLayer.childElementCount >= 42) return;
+
+  const item = document.createElement("span");
+  item.className = "float-item";
+  item.textContent = decorations[
+    Math.floor(Math.random() * decorations.length)
+  ];
+
+  item.style.setProperty("--left", Math.random() * 96 + "%");
+  item.style.setProperty("--size", (15 + Math.random() * 17) + "px");
+  item.style.setProperty("--duration", (5 + Math.random() * 5) + "s");
+  item.style.setProperty("--drift", (Math.random() * 150 - 75) + "px");
+  item.style.setProperty("--delay", (Math.random() * .5) + "s");
+
+  floatingLayer.appendChild(item);
+  item.addEventListener("animationend", () => item.remove(), { once: true });
+}
+
+function burstFlowers(amount = 20) {
+  for (let i = 0; i < amount; i++) {
+    window.setTimeout(createFloatingItem, i * 65);
+  }
+}
+
+function startFloating() {
+  if (floatTimer) return;
+  floatTimer = window.setInterval(createFloatingItem, 280);
+}
+
+/* MỞ QUÀ */
+
+function openGift() {
+  if (giftOpened) return;
+
+  giftOpened = true;
+  $("gift").classList.add("open");
+  $("gift").textContent = "🎉💝🎉";
+  $("giftMessage").classList.add("visible");
+  $("openGift").textContent = "Quà của Mẹ đây rồiii 💗";
+
+  burstFlowers(38);
+  $("giftMessage").scrollIntoView({ behavior: "smooth", block: "center" });
+}
+
+$("openGift").addEventListener("click", openGift);
+$("gift").addEventListener("click", openGift);
+$("gift").addEventListener("keydown", (event) => {
+  if (event.key === "Enter" || event.key === " ") {
+    event.preventDefault();
+    openGift();
+  }
+});
+
+/* ALBUM 10 ẢNH
+   Đặt ảnh trong thư mục images của GitHub.
+   Ví dụ: images/me-01.jpg
+   Thay đường dẫn bên dưới bằng tên file ảnh thật.
+*/
+
+const photos = [
+  { src: "me-01.jpg", caption: "Một khoảnh khắc của nhà mình 💗" },
+  { src: "me-02.jpg", caption: "Mẹ Hoa và những ngày thương nhớ 🌷" },
+  { src: "me-03.jpg", caption: "Cùng nhau lưu giữ kỷ niệm ✨" },
+  { src: "me-04.jpg", caption: "Một chiếc ảnh thật đáng yêu 💕" },
+  { src: "me-05.jpg", caption: "Những niềm vui bé xíu 🌸" },
+  { src: "me-06.jpg", caption: "Nhà mình luôn có nhau 🏡" },
+  { src: "me-07.jpg", caption: "Cười thật nhiều nha Mẹ ơiii 💖" },
+  { src: "me-08.jpg", caption: "Thêm một chút yêu thương 💐" },
+  { src: "me-09.jpg", caption: "Kỷ niệm của Mẹ và con 🥹" },
+  { src: "me-10.jpg", caption: "Yêu Mẹ nhiều nhìuuu 💗" }
+];
+
+const photoTrack = $("photoTrack");
+const photoDots = $("photoDots");
+let currentPhoto = 0;
+
+photos.forEach((photo, index) => {
+  const slide = document.createElement("div");
+  slide.className = "photo-slide";
+
+  const img = document.createElement("img");
+  img.src = photo.src;
+  img.alt = photo.caption;
+  img.loading = index === 0 ? "eager" : "lazy";
+
+  // Nếu chưa thêm ảnh thật, hiển thị khung thay thế.
+  img.addEventListener("error", () => {
+    img.removeAttribute("src");
+    img.alt = "Chưa thêm ảnh kỷ niệm " + (index + 1);
+    img.style.objectFit = "contain";
+    img.style.padding = "25px";
+    img.style.color = "#a14c67";
+    img.style.fontSize = "18px";
+    img.style.background = "#fbe8ee";
+  });
+
+  const caption = document.createElement("div");
+  caption.className = "photo-caption";
+  caption.textContent = photo.caption;
+
+  slide.append(img, caption);
+  photoTrack.appendChild(slide);
+
+  const dot = document.createElement("button");
+  dot.type = "button";
+  dot.setAttribute("aria-label", "Xem ảnh " + (index + 1));
+  dot.addEventListener("click", () => showPhoto(index));
+  photoDots.appendChild(dot);
+});
+
+function showPhoto(index) {
+  currentPhoto = (index + photos.length) % photos.length;
+  photoTrack.style.transform = `translateX(-${currentPhoto * 100}%)`;
+  $("photoCount").textContent =
+    String(currentPhoto + 1).padStart(2, "0") +
+    " / " + String(photos.length).padStart(2, "0");
+
+  [...photoDots.children].forEach((dot, i) => {
+    dot.classList.toggle("active", i === currentPhoto);
+    dot.setAttribute("aria-current", i === currentPhoto ? "true" : "false");
+  });
+}
+
+$("prevPhoto").addEventListener("click", () => showPhoto(currentPhoto - 1));
+$("nextPhoto").addEventListener("click", () => showPhoto(currentPhoto + 1));
+
+showPhoto(0);
+
+/* TỰ CHẠY ALBUM */
+
+let albumTimer = null;
+
+function startAlbum() {
+  if (albumTimer) return;
+  albumTimer = window.setInterval(() => {
+    showPhoto(currentPhoto + 1);
+  }, 4000);
+}
+
+function stopAlbum() {
+  if (!albumTimer) return;
+  clearInterval(albumTimer);
+  albumTimer = null;
+}
+
+const album = $("memories");
+const observer = new IntersectionObserver((entries) => {
+  if (entries[0].isIntersecting) startAlbum();
+  else stopAlbum();
+}, { threshold: 0.25 });
+
+observer.observe(album);
+
+// Tạm dừng khi người xem rê chuột vào album.
+album.addEventListener("mouseenter", stopAlbum);
+album.addEventListener("mouseleave", startAlbum);
+
+// Trên điện thoại, chạm để chọn ảnh; không bắt buộc vuốt.
+</script>
+</body>
+</html>
